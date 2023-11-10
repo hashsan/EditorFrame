@@ -21,3 +21,11 @@ press.press('ctrl+s',(e)=>{
 ```
 
 ## Press.press(key,cb,debouncetime)
+```js
+var ps = new Press(ed.editor)
+ps.press('*',(e)=>{
+  console.log(e.key);
+  
+},200)  //<----------
+
+```
