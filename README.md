@@ -5,7 +5,7 @@ good Editor Frame
 @import url('//hashsan.github.io/EditorFrame/EditorFrame.css?v2');
 ```
 
-```
+```js
 import {EditorFrame,Press} from "//hashsan.github.io/EditorFrame/EditorFrame.js";
 
 var ed = new EditorFrame()
