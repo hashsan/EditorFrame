@@ -19,3 +19,5 @@ press.press('ctrl+s',(e)=>{
   ed.setMessage(e.key)  
 },200)
 ```
+
+## Press.press(key,cb,debouncetime)
