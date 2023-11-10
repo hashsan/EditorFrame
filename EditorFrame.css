@@ -18,7 +18,7 @@
 }
 
 .EditorFrame [contenteditable]{
-  padding:rem;
+  padding:0.5rem;
   min-height:100%;
   outline:none;
   padding-bottom:50vh;
