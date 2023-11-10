@@ -1,6 +1,7 @@
 /*
 v1 ready
 v2 bugfix need max-width
+v3 font-size and font-weight
 */
 .EditorFrame.frame{
   min-width:400px;
@@ -19,6 +20,8 @@ v2 bugfix need max-width
   max-height:50vh;
   overflow-y:scroll;
   background:#f5f5f599;  
+
+  font-weight:bold; /*v3*/  
 }
 
 .EditorFrame [contenteditable]{
@@ -33,7 +36,11 @@ v2 bugfix need max-width
   padding:0 0.5rem;
   color:#555;
   background:#efefef;
-  min-height:1.6rem;
+  /*min-height:1.6rem;*/
+  /*v3*/
+  font-weight:normal;
+  min-height:18px;
+  font-size:12px;
 }
 
 .EditorFrame .message{
