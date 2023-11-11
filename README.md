@@ -6,7 +6,9 @@ good Editor Frame
 ```
 
 ## full sample
+
 ```js
+import {EditorFrame,Press} from "//hashsan.github.io/EditorFrame/EditorFrame.js";
 var ed = new EditorFrame()
 ed.setTitle('xyz')
 ed.setData('hoo')
