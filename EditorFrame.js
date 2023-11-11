@@ -1,4 +1,3 @@
-
 export class EditorFrame{
 
   cls
@@ -13,7 +12,7 @@ export class EditorFrame{
     this.frame = this.make()
   }
   /////
-  make=()=>{
+  make(){
     const temp =`
 <div class="${this.cls} frame">
   <div class="title"></div>
@@ -94,14 +93,15 @@ const debounce = (func, timeout) => {
 }
 
 export class Press{
-  el_press;
-  ary = []
+  //el_press;
+  //ary = []
   constructor(el){
     if(!el){
       throw new Error('element need it!')
     }
+    this.ary=[];
     this.el_press = el
-    this.el_press.addEventListener('keydown',this.onkeydown)
+    this.el_press.addEventListener('keydown',this.onkeydown.bind(this))
   }
   press=(key,cb,time)=>{
     key = key.replaceAll(' ','')
@@ -112,7 +112,9 @@ export class Press{
     this.ary.push({ key, cb })
     return this
   }
-  onkeydown = (e) =>{
+  
+  //closure
+  onkeydown(e){
     var ch =''
     if(e.ctrlKey){
       ch +='ctrl+'
@@ -124,13 +126,14 @@ export class Press{
       ch +='alt+'
     }
     ch+=e.key
-    const caller = this.get(ch)
+    const caller = this.getat(ch)
     if(!caller){
       return
     }
     caller.cb(e)    
   }
-  get = (ch) =>{    
+  
+  getat(ch){    
     let caller = this.ary.filter(d=>d.key===ch).at(0)
     if(caller){
       return caller
@@ -139,6 +142,8 @@ export class Press{
       return this.ary.filter(d=>d.key==='*').at(0)
     }
   }  
+  
+  
 }
 
 
@@ -157,4 +162,22 @@ press.press('ctrl+s',(e)=>{
 
 
 
+/*
+var ed = new EditorFrame()
+ed.setTitle('xyz')
+ed.setData('hoo')
+var da = ed.getData('ddd')
+ed.setMessage('ddd')
+document.body.append(ed.frame)
 
+//ed.remove()
+//
+
+var press = new Press(ed.editor)
+press.press('ctrl+s',(e)=>{
+  e.preventDefault()
+  ed.setMessage('ctrl+s')
+}).press('*',(e)=>{
+  ed.setMessage(e.key)  
+},200)
+*/
